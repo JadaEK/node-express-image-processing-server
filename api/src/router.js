@@ -27,7 +27,7 @@ const storage = multer.diskStorage(
      storage,
  });
 
- router.post('/upload', upload.single('photo', (req, res) =>{
+ router.post('/upload', upload.single('photo'), (req, res) =>{
      if (request.fileValidationError){
          return res.status(400)
          .json({error : request.fileValidationError});
@@ -35,7 +35,7 @@ const storage = multer.diskStorage(
          res.status(201)
          .json({success : true});
      }
- }));
+ });
 
  const photoPath = path.resolve(__dirname, '../../client/photo-viewer.html');
  router.get('/photo-viewer', (req,res) => {
