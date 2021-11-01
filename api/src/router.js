@@ -29,16 +29,15 @@ const storage = multer.diskStorage(
  });
 
  router.post('/upload', upload.single('photo'), async(req, res) =>{
-     if (req.fileValidationError){
+     if (req.fileValidationError)
          return res.status(400)
          .json({error : req.fileValidationError});
      try{
-         await imageProcessor(request.file.filename);
+         await imageProcessor(req.file.filename);
      } catch (error){
    
      }
      res.status(201).json({success : true});
-    };
  });
 
  const photoPath = path.resolve(__dirname, '../../client/photo-viewer.html');
