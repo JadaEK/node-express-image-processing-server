@@ -29,9 +29,9 @@ const storage = multer.diskStorage(
  });
 
  router.post('/upload', upload.single('photo'), (req, res) =>{
-     if (request.fileValidationError){
+     if (req.fileValidationError){
          return res.status(400)
-         .json({error : request.fileValidationError});
+         .json({error : req.fileValidationError});
      };
      
     //  try{
