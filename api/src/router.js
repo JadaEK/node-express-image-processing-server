@@ -34,11 +34,11 @@ const storage = multer.diskStorage(
          .json({error : req.fileValidationError});
      };
      
-    //  try{
-    //      await imageProcessor(request.file.filename)
-    //  } catch (error){
+     try{
+         await imageProcessor(request.file.filename)
+     } catch (error){
    
-    //  }
+     }
      res.status(201).json({success : true});
  });
 
