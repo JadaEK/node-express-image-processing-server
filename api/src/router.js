@@ -1,9 +1,11 @@
-const { json } = require('body-parser');
+//const { json } = require('body-parser');
 const { Router } = require('express');
 const multer = require('multer');
 const path = require('path');
 const router = Router();
 const imageProcessor = require('./imageProcessor');
+
+const photoPath = path.resolve(__dirname, '../../client/photo-viewer.html');
 
 filename = (req, file, callback) => {
     callback(null, file.originalname);
@@ -40,7 +42,6 @@ const storage = multer.diskStorage(
      return res.status(201).json({success : true});
  });
 
- const photoPath = path.resolve(__dirname, '../../client/photo-viewer.html');
  router.get('/photo-viewer', (req,res) => {
      res.sendFile(photoPath);
  })
