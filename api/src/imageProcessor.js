@@ -17,9 +17,9 @@ const imageProcessor= (filename) => {
         if (isMainThread) {
             try {
                 const resizeWorker = new Worker(pathToResizeWorker, {workerData : 
-                    {source : sourcePath, destination : resizeDestination},});
+                    {source : sourcePath, destination : resizeDestination,},});
                 const monochromeWorker = new Worker(pathToMonochromeWorker, {workerData : 
-                    {source : sourcePath, destination : monochromeDestination},});
+                    {source : sourcePath, destination : monochromeDestination,},});
 
                     resizeWorker.on('message', (message) => { 
                         resizeWorkerFinished = true;
