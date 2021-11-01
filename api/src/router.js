@@ -37,7 +37,7 @@ const storage = multer.diskStorage(
      } catch (error){
    
      }
-     res.status(201).json({success : true});
+     return res.status(201).json({success : true});
  });
 
  const photoPath = path.resolve(__dirname, '../../client/photo-viewer.html');
