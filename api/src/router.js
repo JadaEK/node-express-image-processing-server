@@ -28,17 +28,17 @@ const storage = multer.diskStorage(
      storage,
  });
 
- router.post('/upload', upload.single('photo'), async(req, res) =>{
+ router.post('/upload', upload.single('photo'), (req, res) =>{
      if (request.fileValidationError){
          return res.status(400)
          .json({error : request.fileValidationError});
      };
      
-     try{
-         await imageProcessor(request.file.filename)
-     } catch (error){
+    //  try{
+    //      await imageProcessor(request.file.filename)
+    //  } catch (error){
    
-     }
+    //  }
      res.status(201).json({success : true});
  });
 
